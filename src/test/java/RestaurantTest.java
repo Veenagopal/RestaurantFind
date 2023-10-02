@@ -3,12 +3,21 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class RestaurantTest {
     Restaurant restaurant;
     //REFACTOR ALL THE REPEATED LINES OF CODE
+    @Test
+    public void order_value_of_sweet_corn_and_lasagne_is_388() {
+        List<String> itemList = new ArrayList<String>();
+        itemList.add("Sweet corn soup");
+        itemList.add("Vegetable lasagne");
+        assertEquals(388,restaurant.computeOrderValue(itemList));
+    }
     @BeforeEach
     public void setUp() {
         LocalTime openingTime = LocalTime.parse("10:30:00");

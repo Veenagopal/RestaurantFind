@@ -16,7 +16,9 @@ public class Restaurant {
         this.openingTime = openingTime;
         this.closingTime = closingTime;
     }
-
+    public int computeOrderValue(List<String> itemlist) {
+        return 0;
+    }
     public boolean isRestaurantOpen() {
         boolean restOpen = true;
         LocalTime currentTime = getCurrentTime();
