@@ -1,6 +1,7 @@
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Restaurant {
@@ -17,7 +18,19 @@ public class Restaurant {
         this.closingTime = closingTime;
     }
     public int computeOrderValue(List<String> itemlist) {
-        return 0;
+        int total = 0;
+        Iterator<String> itemIterator = itemlist.iterator();
+        while(itemIterator.hasNext()) {
+            String orderedItemName = itemIterator.next();
+            for(Item itemInMenu : this.menu) {
+                if(itemInMenu.getName().equals(orderedItemName)) {
+                    total += itemInMenu.getPrice();
+                    break;
+                }
+            }
+        }
+
+        return total;
     }
     public boolean isRestaurantOpen() {
         boolean restOpen = true;
